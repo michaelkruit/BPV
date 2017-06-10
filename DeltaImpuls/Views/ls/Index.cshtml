@@ -1,33 +1,32 @@
 ﻿@model IEnumerable<DeltaImpuls.Models.ls>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Senior licenties";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.license)
-        </th>
-        <th></th>
-    </tr>
+<table class="table-responsive">
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.license)
+            @{
+                string license = Server.HtmlDecode(Html.DisplayFor(modelItem => item.license).ToString());
+            }
+
+            @Html.ActionLink(license, "Edit", new { id = item.ID })
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
-
 </table>
+
+<p>
+    <button type="button" class="btn btn-default btn-lg" onclick="location.href='@Url.Action("Create")'">
+        Nieuwe licentie toevoegen
+    </button>
+</p>
