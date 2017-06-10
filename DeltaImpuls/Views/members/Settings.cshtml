@@ -7,8 +7,20 @@
 
 <div id="settings">
     <ul>
-        <li>@Html.ActionLink("Categorie", "Index", "categories", new { @class = "btn btn-default btn-lg" })</li>
-        <li>@Html.ActionLink("LS", "Index", "ls", new { @class = "btn btn-default btn-lg" })</li>
-        <li>@Html.ActionLink("LS", "Index", "ljs", new { @class = "btn btn-default btn-lg" })</li>
+        <li>
+            <button type="button" class="btn btn-default btn-lg" onclick="location.href='@Url.Action("Index", "categories")'">
+                Categorie
+            </button>
+        </li>
+        <li>
+            <button type="button" class="btn btn-default btn-lg" onclick="location.href='@Url.Action("Index", "ls")'">
+                LS
+            </button>
+        </li>
+        <li>
+            <button type="button" class="btn btn-default btn-lg" onclick="location.href='@Url.Action("Index", "ljs")'">
+                LJ
+            </button>
+        </li>
     </ul>
 </div>
