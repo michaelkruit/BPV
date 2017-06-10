@@ -1,45 +1,30 @@
 ﻿@model IEnumerable<DeltaImpuls.Models.location>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Locaties";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.city)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.postcode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.adres)
-        </th>
-        <th></th>
-    </tr>
-
+<table class="table-responsive">
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.city)
+            @{ 
+                string location = Server.HtmlDecode(Html.DisplayFor(modelItem => item.city).ToString());
+            }
+            @Html.ActionLink(location, "Edit", new { id = item.ID })
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.postcode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.adres)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
 
 </table>
+
+<p>
+    <button type="button" class="btn btn-default btn-lg" onclick="location.href='@Url.Action("Create")'">
+        Nieuwe categorie toevoegen
+    </button>
+</p>
