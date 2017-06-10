@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="datimpulsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categorie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="age" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="lj">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="license" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="postcode" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="adres" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ls">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="license" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="insertion" Type="varchar" MaxLength="10" />
+          <Property Name="bondsnr" Type="bigint" Nullable="false" />
+          <Property Name="cg" Type="bit" />
+          <Property Name="paratt" Type="bit" />
+          <Property Name="dateborn" Type="datetime" Nullable="false" />
+          <Property Name="gender" Type="bit" Nullable="false" />
+          <Property Name="membersince" Type="datetime" Nullable="false" />
+          <Property Name="adres" Type="varchar" MaxLength="25" />
+          <Property Name="postcode" Type="varchar" MaxLength="8" />
+          <Property Name="city" Type="varchar" MaxLength="25" />
+          <Property Name="phonennumber" Type="varchar" MaxLength="15" />
+          <Property Name="mobilenumber" Type="varchar" MaxLength="15" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="categorie_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="location_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="lj_id" Type="uniqueidentifier" />
+          <Property Name="ls_id" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="role" Type="varchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="role_id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_member_categorie">
+          <End Role="categorie" Type="Self.categorie" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorie">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="categorie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_lj">
+          <End Role="lj" Type="Self.lj" Multiplicity="0..1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lj">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="lj_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_location">
+          <End Role="location" Type="Self.location" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="location">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="location_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_ls">
+          <End Role="ls" Type="Self.ls" Multiplicity="0..1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ls">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="ls_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_role">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="datimpulsModelStoreContainer">
+          <EntitySet Name="categorie" EntityType="Self.categorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lj" EntityType="Self.lj" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="location" EntityType="Self.location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ls" EntityType="Self.ls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="member" EntityType="Self.member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_member_categorie" Association="Self.FK_member_categorie">
+            <End Role="categorie" EntitySet="categorie" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_lj" Association="Self.FK_member_lj">
+            <End Role="lj" EntitySet="lj" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_location" Association="Self.FK_member_location">
+            <End Role="location" EntitySet="location" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_ls" Association="Self.FK_member_ls">
+            <End Role="ls" EntitySet="ls" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_role" Association="Self.FK_user_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="datimpulsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="categorie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="age" Type="Byte" />
+          <NavigationProperty Name="member" Relationship="Self.FK_member_categorie" FromRole="categorie" ToRole="member" />
+        </EntityType>
+        <EntityType Name="lj">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="license" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="member" Relationship="Self.FK_member_lj" FromRole="lj" ToRole="member" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postcode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adres" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="member" Relationship="Self.FK_member_location" FromRole="location" ToRole="member" />
+        </EntityType>
+        <EntityType Name="ls">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="license" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="member" Relationship="Self.FK_member_ls" FromRole="ls" ToRole="member" />
+        </EntityType>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="insertion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="bondsnr" Type="Int64" Nullable="false" />
+          <Property Name="cg" Type="Boolean" />
+          <Property Name="paratt" Type="Boolean" />
+          <Property Name="dateborn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="gender" Type="Boolean" Nullable="false" />
+          <Property Name="membersince" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="adres" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="postcode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="phonennumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="mobilenumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="categorie_id" Type="Guid" Nullable="false" />
+          <Property Name="location_ID" Type="Guid" Nullable="false" />
+          <Property Name="lj_id" Type="Guid" />
+          <Property Name="ls_id" Type="Guid" />
+          <NavigationProperty Name="categorie" Relationship="Self.FK_member_categorie" FromRole="member" ToRole="categorie" />
+          <NavigationProperty Name="lj" Relationship="Self.FK_member_lj" FromRole="member" ToRole="lj" />
+          <NavigationProperty Name="location" Relationship="Self.FK_member_location" FromRole="member" ToRole="location" />
+          <NavigationProperty Name="ls" Relationship="Self.FK_member_ls" FromRole="member" ToRole="ls" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="role1" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_user_role" FromRole="role" ToRole="user" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role_id" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="role" Relationship="Self.FK_user_role" FromRole="user" ToRole="role" />
+        </EntityType>
+        <Association Name="FK_member_categorie">
+          <End Role="categorie" Type="Self.categorie" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorie">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="categorie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_lj">
+          <End Role="lj" Type="Self.lj" Multiplicity="0..1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lj">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="lj_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_location">
+          <End Role="location" Type="Self.location" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="location">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="location_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_ls">
+          <End Role="ls" Type="Self.ls" Multiplicity="0..1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ls">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="ls_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_role">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="datimpulsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categorie" EntityType="Self.categorie" />
+          <EntitySet Name="lj" EntityType="Self.lj" />
+          <EntitySet Name="location" EntityType="Self.location" />
+          <EntitySet Name="ls" EntityType="Self.ls" />
+          <EntitySet Name="member" EntityType="Self.member" />
+          <EntitySet Name="role" EntityType="Self.role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="user" EntityType="Self.user" />
+          <AssociationSet Name="FK_member_categorie" Association="Self.FK_member_categorie">
+            <End Role="categorie" EntitySet="categorie" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_lj" Association="Self.FK_member_lj">
+            <End Role="lj" EntitySet="lj" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_location" Association="Self.FK_member_location">
+            <End Role="location" EntitySet="location" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_ls" Association="Self.FK_member_ls">
+            <End Role="ls" EntitySet="ls" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_role" Association="Self.FK_user_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="datimpulsModelStoreContainer" CdmEntityContainer="datimpulsEntities">
+          <EntitySetMapping Name="categorie">
+            <EntityTypeMapping TypeName="datimpulsModel.categorie">
+              <MappingFragment StoreEntitySet="categorie">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="age" ColumnName="age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lj">
+            <EntityTypeMapping TypeName="datimpulsModel.lj">
+              <MappingFragment StoreEntitySet="lj">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="license" ColumnName="license" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location">
+            <EntityTypeMapping TypeName="datimpulsModel.location">
+              <MappingFragment StoreEntitySet="location">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ls">
+            <EntityTypeMapping TypeName="datimpulsModel.ls">
+              <MappingFragment StoreEntitySet="ls">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="license" ColumnName="license" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="member">
+            <EntityTypeMapping TypeName="datimpulsModel.member">
+              <MappingFragment StoreEntitySet="member">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="insertion" ColumnName="insertion" />
+                <ScalarProperty Name="bondsnr" ColumnName="bondsnr" />
+                <ScalarProperty Name="cg" ColumnName="cg" />
+                <ScalarProperty Name="paratt" ColumnName="paratt" />
+                <ScalarProperty Name="dateborn" ColumnName="dateborn" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="membersince" ColumnName="membersince" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="phonennumber" ColumnName="phonennumber" />
+                <ScalarProperty Name="mobilenumber" ColumnName="mobilenumber" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="categorie_id" ColumnName="categorie_id" />
+                <ScalarProperty Name="location_ID" ColumnName="location_ID" />
+                <ScalarProperty Name="lj_id" ColumnName="lj_id" />
+                <ScalarProperty Name="ls_id" ColumnName="ls_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="role">
+            <EntityTypeMapping TypeName="datimpulsModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="role1" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="datimpulsModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="datimpulsModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
