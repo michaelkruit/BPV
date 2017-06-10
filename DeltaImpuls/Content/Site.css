@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#settings ul{
+    list-style-type: none;
+}
+
+#settings ul li{
+    padding: 10px 0 0 0;
+}
