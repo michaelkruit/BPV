@@ -30,3 +30,7 @@ textarea {
 #settings ul li{
     padding: 10px 0 0 0;
 }
+
+.table-responsive td{
+    padding: 10px;
+}
