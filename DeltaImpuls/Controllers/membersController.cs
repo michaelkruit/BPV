@@ -21,6 +21,11 @@ namespace DeltaImpuls.Controllers
             return View(member.ToList());
         }
 
+        public ActionResult Settings()
+        {
+            return View();
+        }
+
         // GET: members/Details/5
         public ActionResult Details(Guid? id)
         {
