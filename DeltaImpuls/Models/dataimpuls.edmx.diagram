@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="98e0d1e5c0a74a54b2d7b4d4cdf984cf" Name="Diagram1">
-        <EntityTypeShape EntityType="datimpulsModel.categorie" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="datimpulsModel.lj" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="datimpulsModel.location" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="datimpulsModel.ls" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+      <Diagram DiagramId="98e0d1e5c0a74a54b2d7b4d4cdf984cf" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="datimpulsModel.categorie" Width="1.5" PointX="0.625" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="datimpulsModel.lj" Width="1.5" PointX="6.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="datimpulsModel.location" Width="1.5" PointX="0.625" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="datimpulsModel.ls" Width="1.5" PointX="6.125" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="datimpulsModel.member" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="datimpulsModel.role" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="datimpulsModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="datimpulsModel.user" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="datimpulsModel.role" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="datimpulsModel.sysdiagrams" Width="1.5" PointX="8.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="datimpulsModel.user" Width="1.5" PointX="4.75" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="datimpulsModel.FK_member_categorie" ManuallyRouted="false" />
         <AssociationConnector Association="datimpulsModel.FK_member_lj" ManuallyRouted="false" />
         <AssociationConnector Association="datimpulsModel.FK_member_location" ManuallyRouted="false" />

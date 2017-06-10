@@ -1,0 +1,176 @@
+﻿@model DeltaImpuls.Models.member
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>member</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.insertion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.insertion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bondsnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bondsnr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paratt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paratt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateborn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateborn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.membersince)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.membersince)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phonennumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phonennumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mobilenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mobilenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categorie.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categorie.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lj.license)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lj.license)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.location.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ls.license)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ls.license)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

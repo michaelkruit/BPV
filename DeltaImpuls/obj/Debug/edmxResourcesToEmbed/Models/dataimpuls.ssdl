@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="datimpulsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categorie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="age" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="lj">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="license" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="location">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="city" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="postcode" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="adres" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ls">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="license" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="lastname" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="insertion" Type="varchar" MaxLength="10" />
+    <Property Name="bondsnr" Type="bigint" Nullable="false" />
+    <Property Name="cg" Type="bit" />
+    <Property Name="paratt" Type="bit" />
+    <Property Name="dateborn" Type="datetime" Nullable="false" />
+    <Property Name="gender" Type="bit" Nullable="false" />
+    <Property Name="membersince" Type="datetime" Nullable="false" />
+    <Property Name="adres" Type="varchar" MaxLength="25" />
+    <Property Name="postcode" Type="varchar" MaxLength="8" />
+    <Property Name="city" Type="varchar" MaxLength="25" />
+    <Property Name="phonennumber" Type="varchar" MaxLength="15" />
+    <Property Name="mobilenumber" Type="varchar" MaxLength="15" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="categorie_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="location_ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="lj_id" Type="uniqueidentifier" />
+    <Property Name="ls_id" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="role" Type="varchar" MaxLength="12" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="role_id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_member_categorie">
+    <End Role="categorie" Type="Self.categorie" Multiplicity="1" />
+    <End Role="member" Type="Self.member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categorie">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="member">
+        <PropertyRef Name="categorie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_member_lj">
+    <End Role="lj" Type="Self.lj" Multiplicity="0..1" />
+    <End Role="member" Type="Self.member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lj">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="member">
+        <PropertyRef Name="lj_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_member_location">
+    <End Role="location" Type="Self.location" Multiplicity="1" />
+    <End Role="member" Type="Self.member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="location">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="member">
+        <PropertyRef Name="location_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_member_ls">
+    <End Role="ls" Type="Self.ls" Multiplicity="0..1" />
+    <End Role="member" Type="Self.member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ls">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="member">
+        <PropertyRef Name="ls_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_role">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="datimpulsModelStoreContainer">
+    <EntitySet Name="categorie" EntityType="Self.categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lj" EntityType="Self.lj" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="location" EntityType="Self.location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ls" EntityType="Self.ls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="member" EntityType="Self.member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_member_categorie" Association="Self.FK_member_categorie">
+      <End Role="categorie" EntitySet="categorie" />
+      <End Role="member" EntitySet="member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_member_lj" Association="Self.FK_member_lj">
+      <End Role="lj" EntitySet="lj" />
+      <End Role="member" EntitySet="member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_member_location" Association="Self.FK_member_location">
+      <End Role="location" EntitySet="location" />
+      <End Role="member" EntitySet="member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_member_ls" Association="Self.FK_member_ls">
+      <End Role="ls" EntitySet="ls" />
+      <End Role="member" EntitySet="member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_role" Association="Self.FK_user_role">
+      <End Role="role" EntitySet="role" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

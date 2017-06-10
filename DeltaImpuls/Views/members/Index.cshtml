@@ -1,0 +1,141 @@
+﻿@model IEnumerable<DeltaImpuls.Models.member>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.insertion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bondsnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paratt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateborn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.membersince)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phonennumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mobilenumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.categorie.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lj.license)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ls.license)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.insertion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bondsnr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paratt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateborn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.membersince)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phonennumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mobilenumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.categorie.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lj.license)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.location.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ls.license)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

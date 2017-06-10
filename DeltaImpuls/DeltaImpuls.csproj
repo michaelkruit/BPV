@@ -80,6 +80,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -196,14 +198,60 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\categoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ljsController.cs" />
+    <Compile Include="Controllers\locationsController.cs" />
+    <Compile Include="Controllers\lsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\membersController.cs" />
+    <Compile Include="Controllers\rolesController.cs" />
+    <Compile Include="Controllers\usersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\categorie.cs">
+      <DependentUpon>dataimpuls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dataimpuls.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataimpuls.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dataimpuls.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataimpuls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dataimpuls.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataimpuls.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\lj.cs">
+      <DependentUpon>dataimpuls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\location.cs">
+      <DependentUpon>dataimpuls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ls.cs">
+      <DependentUpon>dataimpuls.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\member.cs">
+      <DependentUpon>dataimpuls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\role.cs">
+      <DependentUpon>dataimpuls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>dataimpuls.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user.cs">
+      <DependentUpon>dataimpuls.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -214,10 +262,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\dataimpuls.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dataimpuls.edmx</DependentUpon>
+      <LastGenOutput>dataimpuls.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\dataimpuls.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dataimpuls.edmx</DependentUpon>
+      <LastGenOutput>dataimpuls.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\dataimpuls.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dataimpuls.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\dataimpuls.edmx.diagram">
+      <DependentUpon>dataimpuls.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -265,6 +330,41 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\categories\Create.cshtml" />
+    <Content Include="Views\categories\Delete.cshtml" />
+    <Content Include="Views\categories\Details.cshtml" />
+    <Content Include="Views\categories\Edit.cshtml" />
+    <Content Include="Views\categories\Index.cshtml" />
+    <Content Include="Views\ljs\Create.cshtml" />
+    <Content Include="Views\ljs\Delete.cshtml" />
+    <Content Include="Views\ljs\Details.cshtml" />
+    <Content Include="Views\ljs\Edit.cshtml" />
+    <Content Include="Views\ljs\Index.cshtml" />
+    <Content Include="Views\ls\Create.cshtml" />
+    <Content Include="Views\ls\Delete.cshtml" />
+    <Content Include="Views\ls\Details.cshtml" />
+    <Content Include="Views\ls\Edit.cshtml" />
+    <Content Include="Views\ls\Index.cshtml" />
+    <Content Include="Views\members\Create.cshtml" />
+    <Content Include="Views\members\Delete.cshtml" />
+    <Content Include="Views\members\Details.cshtml" />
+    <Content Include="Views\members\Edit.cshtml" />
+    <Content Include="Views\members\Index.cshtml" />
+    <Content Include="Views\locations\Create.cshtml" />
+    <Content Include="Views\locations\Delete.cshtml" />
+    <Content Include="Views\locations\Details.cshtml" />
+    <Content Include="Views\locations\Edit.cshtml" />
+    <Content Include="Views\locations\Index.cshtml" />
+    <Content Include="Views\roles\Create.cshtml" />
+    <Content Include="Views\roles\Delete.cshtml" />
+    <Content Include="Views\roles\Details.cshtml" />
+    <Content Include="Views\roles\Edit.cshtml" />
+    <Content Include="Views\roles\Index.cshtml" />
+    <Content Include="Views\users\Create.cshtml" />
+    <Content Include="Views\users\Delete.cshtml" />
+    <Content Include="Views\users\Details.cshtml" />
+    <Content Include="Views\users\Edit.cshtml" />
+    <Content Include="Views\users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -276,6 +376,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
