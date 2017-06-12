@@ -18,6 +18,7 @@ namespace DeltaImpuls.Controllers
         public ActionResult Index()
         {
             var member = db.member.Include(m => m.categorie).Include(m => m.lj).Include(m => m.location).Include(m => m.ls);
+
             return View(member.ToList());
         }
 

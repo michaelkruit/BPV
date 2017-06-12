@@ -21,11 +21,11 @@ namespace DeltaImpuls.Models
         {
             this.member = new HashSet<member>();
         }
-    
+
         public System.Guid ID { get; set; }
         [Required, DisplayName("Licentie")]
         public string license { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<member> member { get; set; }
     }

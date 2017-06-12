@@ -21,7 +21,7 @@ namespace DeltaImpuls.Models
         {
             this.member = new HashSet<member>();
         }
-    
+
         public System.Guid ID { get; set; }
         [Required, DisplayName("Plaats")]
         public string city { get; set; }
@@ -30,7 +30,7 @@ namespace DeltaImpuls.Models
         public string postcode { get; set; }
         [Required, DisplayName("Adres")]
         public string adres { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<member> member { get; set; }
     }

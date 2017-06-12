@@ -30,12 +30,12 @@ namespace DeltaImpuls.Models
         [DisplayName("Para-TT")]
         public bool paratt { get; set; }
         [Required, DisplayName("Geb. Datum")]
-        [DisplayFormat(DataFormatString = "{0:dd:MM:yyyy", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime dateborn { get; set; }
         [DisplayName("M/V")]
         public bool gender { get; set; }
         [Required, DisplayName("Lid sinds")]
-        [DisplayFormat(DataFormatString = "{0:dd:MM:yyyy", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime membersince { get; set; }
         [Required, DisplayName("Adres")]
         public string adres { get; set; }
@@ -57,7 +57,7 @@ namespace DeltaImpuls.Models
         public System.Guid location_ID { get; set; }
         public Nullable<System.Guid> lj_id { get; set; }
         public Nullable<System.Guid> ls_id { get; set; }
-    
+
         public virtual categorie categorie { get; set; }
         public virtual lj lj { get; set; }
         public virtual location location { get; set; }

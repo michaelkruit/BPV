@@ -27,6 +27,9 @@
             @Html.DisplayNameFor(model => model.paratt)
         </th>
         <th>
+            Leeftijd
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.dateborn)
         </th>
         <th>
@@ -89,7 +92,10 @@
             @Html.DisplayFor(modelItem => item.paratt)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.dateborn)
+            Hier moet de leeftijd komen
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateborn);
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.gender)
@@ -126,11 +132,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ls.license)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
