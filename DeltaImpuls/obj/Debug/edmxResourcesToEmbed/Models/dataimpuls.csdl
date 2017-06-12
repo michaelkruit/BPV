@@ -44,8 +44,8 @@
     <Property Name="lastname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="insertion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="bondsnr" Type="Int64" Nullable="false" />
-    <Property Name="cg" Type="Boolean" />
-    <Property Name="paratt" Type="Boolean" />
+    <Property Name="cg" Type="Boolean" Nullable="false" />
+    <Property Name="paratt" Type="Boolean" Nullable="false" />
     <Property Name="dateborn" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="gender" Type="Boolean" Nullable="false" />
     <Property Name="membersince" Type="DateTime" Nullable="false" Precision="3" />

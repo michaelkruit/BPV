@@ -11,24 +11,47 @@ namespace DeltaImpuls.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class member
     {
         public System.Guid ID { get; set; }
+        [Required, DisplayName("Voornaam")]
         public string firstname { get; set; }
+        [Required, DisplayName("Achternaam")]
         public string lastname { get; set; }
+        [DisplayName("T.V.")]
         public string insertion { get; set; }
+        [Required, DisplayName("Bondsnmr")]
         public long bondsnr { get; set; }
-        public Nullable<bool> cg { get; set; }
-        public Nullable<bool> paratt { get; set; }
+        [DisplayName("CG")]
+        public bool cg { get; set; }
+        [DisplayName("Para-TT")]
+        public bool paratt { get; set; }
+        [Required, DisplayName("Geb. Datum")]
+        [DisplayFormat(DataFormatString = "{0:dd:MM:yyyy", ApplyFormatInEditMode = true)]
         public System.DateTime dateborn { get; set; }
+        [DisplayName("M/V")]
         public bool gender { get; set; }
+        [Required, DisplayName("Lid sinds")]
+        [DisplayFormat(DataFormatString = "{0:dd:MM:yyyy", ApplyFormatInEditMode = true)]
         public System.DateTime membersince { get; set; }
+        [Required, DisplayName("Adres")]
         public string adres { get; set; }
+        [Required, DisplayName("Postcode")]
+        [DataType(DataType.PostalCode)]
         public string postcode { get; set; }
+        [Required, DisplayName("Woonplaats")]
         public string city { get; set; }
+        [DisplayName("Telefoonnummer")]
+        [DataType(DataType.PhoneNumber)]
         public string phonennumber { get; set; }
+        [DisplayName("Mobiel")]
+        [DataType(DataType.PhoneNumber)]
         public string mobilenumber { get; set; }
+        [Required, DisplayName("Email")]
+        [DataType(DataType.EmailAddress)]
         public string email { get; set; }
         public System.Guid categorie_id { get; set; }
         public System.Guid location_ID { get; set; }

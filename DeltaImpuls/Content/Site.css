@@ -34,3 +34,15 @@ textarea {
 .table-responsive td{
     padding: 10px;
 }
+
+.left{
+    float:left;
+    display:inline-block;
+    width:50%;
+}
+
+.right{
+    float:right;
+    display:inline-block;
+    width:50%;
+}

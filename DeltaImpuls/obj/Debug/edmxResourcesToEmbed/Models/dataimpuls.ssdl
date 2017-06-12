@@ -40,8 +40,8 @@
     <Property Name="lastname" Type="varchar" MaxLength="25" Nullable="false" />
     <Property Name="insertion" Type="varchar" MaxLength="10" />
     <Property Name="bondsnr" Type="bigint" Nullable="false" />
-    <Property Name="cg" Type="bit" />
-    <Property Name="paratt" Type="bit" />
+    <Property Name="cg" Type="bit" Nullable="false" />
+    <Property Name="paratt" Type="bit" Nullable="false" />
     <Property Name="dateborn" Type="datetime" Nullable="false" />
     <Property Name="gender" Type="bit" Nullable="false" />
     <Property Name="membersince" Type="datetime" Nullable="false" />

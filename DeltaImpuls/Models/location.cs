@@ -13,7 +13,6 @@ namespace DeltaImpuls.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class location
     {
@@ -22,11 +21,12 @@ namespace DeltaImpuls.Models
         {
             this.member = new HashSet<member>();
         }
-        
+    
         public System.Guid ID { get; set; }
-        [Required, DisplayName("Stad")]
+        [Required, DisplayName("Plaats")]
         public string city { get; set; }
         [Required, DisplayName("Postcode")]
+        [DataType(DataType.PostalCode)]
         public string postcode { get; set; }
         [Required, DisplayName("Adres")]
         public string adres { get; set; }
