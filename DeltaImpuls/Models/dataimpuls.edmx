@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="datimpulsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="datimpulsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="categorie">
           <Key>
             <PropertyRef Name="ID" />
@@ -86,6 +86,7 @@
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="role_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="is_active" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_member_categorie">
           <End Role="categorie" Type="Self.categorie" Multiplicity="1" />
@@ -177,8 +178,7 @@
             <End Role="user" EntitySet="user" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="datimpulsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -273,6 +273,7 @@
           <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="role_id" Type="Guid" Nullable="false" />
           <NavigationProperty Name="role" Relationship="Self.FK_user_role" FromRole="user" ToRole="role" />
+          <Property Name="is_active" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_member_categorie">
           <End Role="categorie" Type="Self.categorie" Multiplicity="1" />
@@ -453,6 +454,7 @@
           <EntitySetMapping Name="user">
             <EntityTypeMapping TypeName="datimpulsModel.user">
               <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="password" ColumnName="password" />

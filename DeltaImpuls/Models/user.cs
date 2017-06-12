@@ -18,6 +18,7 @@ namespace DeltaImpuls.Models
         public string email { get; set; }
         public string password { get; set; }
         public System.Guid role_id { get; set; }
+        public bool is_active { get; set; }
     
         public virtual role role { get; set; }
     }
