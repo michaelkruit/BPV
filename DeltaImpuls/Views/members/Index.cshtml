@@ -86,18 +86,46 @@
             @Html.DisplayFor(modelItem => item.bondsnr)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cg)
+            @{ 
+                if(item.cg)
+                {
+                    @Html.Raw("J")
+                }
+                else
+                {
+                    @Html.Raw("N")
+                }
+            }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.paratt)
+            @{
+                if(item.paratt)
+                {
+                    @Html.Raw("J")
+                }
+                else
+                {
+                    @Html.Raw("N")
+                }
+            }
         </td>
         <td>
-            Hier moet de leeftijd komen
+            10
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.dateborn);
         </td>
         <td>
+            @{ 
+                if (item.gender)
+                {
+                    @Html.Raw("M")
+                }
+                else
+                {
+                    @Html.Raw("V")
+                }
+            }
             @Html.DisplayFor(modelItem => item.gender)
         </td>
         <td>
