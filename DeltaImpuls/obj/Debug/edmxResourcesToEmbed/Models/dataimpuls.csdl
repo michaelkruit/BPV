@@ -91,6 +91,7 @@
     <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="role_id" Type="Guid" Nullable="false" />
     <NavigationProperty Name="role" Relationship="Self.FK_user_role" FromRole="user" ToRole="role" />
+    <Property Name="is_active" Type="Boolean" Nullable="false" />
   </EntityType>
   <Association Name="FK_member_categorie">
     <End Role="categorie" Type="Self.categorie" Multiplicity="1" />

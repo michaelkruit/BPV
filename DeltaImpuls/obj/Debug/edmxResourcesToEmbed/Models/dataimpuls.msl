@@ -84,6 +84,7 @@
     <EntitySetMapping Name="user">
       <EntityTypeMapping TypeName="datimpulsModel.user">
         <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="password" ColumnName="password" />

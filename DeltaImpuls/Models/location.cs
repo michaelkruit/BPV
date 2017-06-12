@@ -11,7 +11,10 @@ namespace DeltaImpuls.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class location
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,10 +22,13 @@ namespace DeltaImpuls.Models
         {
             this.member = new HashSet<member>();
         }
-    
+        
         public System.Guid ID { get; set; }
+        [Required, DisplayName("Stad")]
         public string city { get; set; }
+        [Required, DisplayName("Postcode")]
         public string postcode { get; set; }
+        [Required, DisplayName("Adres")]
         public string adres { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

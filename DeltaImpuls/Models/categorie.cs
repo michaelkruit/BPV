@@ -11,7 +11,9 @@ namespace DeltaImpuls.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class categorie
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +23,9 @@ namespace DeltaImpuls.Models
         }
     
         public System.Guid ID { get; set; }
+        [Required, DisplayName("Categorie")]
         public string name { get; set; }
+        [Required, DisplayName("Leeftijd")]
         public Nullable<byte> age { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
