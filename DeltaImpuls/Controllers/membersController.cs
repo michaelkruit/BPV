@@ -15,6 +15,7 @@ namespace DeltaImpuls.Controllers
     /// It also handels creating, editing and deleting members
     /// It shows the settings page
     /// </summary>
+    [Authorize]
     public class membersController : Controller
     {
         private datimpulsEntities db = new datimpulsEntities();

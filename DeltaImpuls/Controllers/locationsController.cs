@@ -10,6 +10,7 @@ using DeltaImpuls.Models;
 
 namespace DeltaImpuls.Controllers
 {
+    [Authorize]
     public class locationsController : Controller
     {
         private datimpulsEntities db = new datimpulsEntities();
