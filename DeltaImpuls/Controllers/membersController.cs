@@ -10,6 +10,11 @@ using DeltaImpuls.Models;
 
 namespace DeltaImpuls.Controllers
 {
+    /// <summary>
+    /// Controller that shows the wished members
+    /// It also handels creating, editing and deleting members
+    /// It shows the settings page
+    /// </summary>
     public class membersController : Controller
     {
         private datimpulsEntities db = new datimpulsEntities();

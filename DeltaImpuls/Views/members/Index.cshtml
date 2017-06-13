@@ -7,14 +7,14 @@
     <h2>@ViewBag.Title</h2>
 
     <div class="content-left">
-        <p>Aantal senioren: @ViewBag.SeniorAmount</p>
-        <p>Aantal junioren: @ViewBag.JuniorAmount</p>
-        <p>Filteren op:</p>
+        <h3>Aantal senioren: @ViewBag.SeniorAmount</h3>
+        <h3>Aantal junioren: @ViewBag.JuniorAmount</h3>
+        <h3>Filteren op:</h3>
     </div>
 
     <div class="content-right">
-        <p>Kies locatie:</p>
-        <p>Zoek lid: @Html.TextBox("SearchString", ViewBag.SearchValue as string)</p>
+        <h3>Kies locatie:</h3>
+        <h3>Zoek lid: @Html.TextBox("SearchString", ViewBag.SearchValue as string)</h3>
     </div>
 <table class="table">
     <tr>
