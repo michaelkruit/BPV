@@ -7,8 +7,8 @@
 <h2>@ViewBag.Title</h2>
 @{ 
     var boolList = new List<SelectListItem>();
-    boolList.Add(new SelectListItem { Text = "Ja", Value = "true" });
-    boolList.Add(new SelectListItem { Text = "Nee", Value = "false" });
+    boolList.Add(new SelectListItem { Text = "Man", Value = "false" });
+    boolList.Add(new SelectListItem { Text = "Vrouw", Value = "true" });
 }
 
 @using (Html.BeginForm()) 
@@ -82,10 +82,8 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.gender)
-                        @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
-                    </div>
+                    @Html.DropDownListFor(model => model.gender, boolList, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
                 </div>
             </div>
 
