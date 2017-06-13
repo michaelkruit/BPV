@@ -7,14 +7,14 @@
     <h2>@ViewBag.Title</h2>
 
     <div class="content-left">
-        <p>Aantal senioren:</p>
-        <p>Aantal junioren:</p>
+        <p>Aantal senioren: @ViewBag.SeniorAmount</p>
+        <p>Aantal junioren: @ViewBag.JuniorAmount</p>
         <p>Filteren op:</p>
     </div>
 
     <div class="content-right">
         <p>Kies locatie:</p>
-        <p>Zoek lid:</p>
+        <p>Zoek lid: @Html.TextBox("SearchString", ViewBag.SearchValue as string)</p>
     </div>
 <table class="table">
     <tr>
@@ -74,14 +74,12 @@
         </th>
         <th>
             LJ
-            @*@Html.DisplayNameFor(model => model.lj.license)*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.location.city)
         </th>
         <th>
             LS
-            @*@Html.DisplayNameFor(model => model.ls.license)*@
         </th>
         <th></th>
     </tr>
@@ -90,7 +88,10 @@
 {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.firstname)
+            @{ 
+                string firstName = Server.HtmlDecode(Html.DisplayFor(modelItem => item.firstname).ToString());
+            }
+            @Html.ActionLink(firstName, "Edit", new { id = item.ID })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.lastname)
@@ -126,10 +127,19 @@
             }
         </td>
         <td>
-            10
+            @{ 
+                var today = DateTime.Today;
+                var age = today.Year - item.dateborn.Year;
+                if (item.dateborn > today.AddYears(-age))
+                {
+                    age--;
+                }
+
+                @Html.DisplayTextFor(model => age);
+            }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.dateborn);
+            @Html.DisplayFor(modelItem => item.dateborn)
         </td>
         <td>
             @{ 
@@ -142,7 +152,6 @@
                     @Html.Raw("V")
                 }
             }
-            @Html.DisplayFor(modelItem => item.gender)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.membersince)

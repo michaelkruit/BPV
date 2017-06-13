@@ -30,12 +30,12 @@ namespace DeltaImpuls.Models
         [DisplayName("Para-TT")]
         public bool paratt { get; set; }
         [Required, DisplayName("Geb. Datum")]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime dateborn { get; set; }
         [DisplayName("M/V")]
         public bool gender { get; set; }
         [Required, DisplayName("Lid sinds")]
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime membersince { get; set; }
         [Required, DisplayName("Adres")]
         public string adres { get; set; }

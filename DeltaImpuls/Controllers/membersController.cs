@@ -18,7 +18,12 @@ namespace DeltaImpuls.Controllers
         public ActionResult Index(string searchString, int? locationFilter, int? ageFilter)
         {
             var member = db.member.Include(m => m.categorie).Include(m => m.lj).Include(m => m.location).Include(m => m.ls);
+            
+            var seniorAmount = member.Where(m => m.categorie.age > 17).Count();
+            var juniorAmount = member.Where(m => m.categorie.age < 18).Count();
 
+            ViewBag.SeniorAmount = seniorAmount;
+            ViewBag.JuniorAmount = juniorAmount;
 
             return View(member.ToList());
         }
