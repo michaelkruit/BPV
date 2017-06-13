@@ -20,7 +20,7 @@ namespace DeltaImpuls.Controllers
         private datimpulsEntities db = new datimpulsEntities();
 
         // GET: members
-        public ActionResult Index(string searchString, int? locationFilter, int? ageFilter)
+        public ActionResult Index(string searchString, Guid? locationFilter, int? ageFilter)
         {
             var member = db.member.Include(m => m.categorie).Include(m => m.lj).Include(m => m.location).Include(m => m.ls);
             
@@ -29,6 +29,12 @@ namespace DeltaImpuls.Controllers
 
             ViewBag.SeniorAmount = seniorAmount;
             ViewBag.JuniorAmount = juniorAmount;
+            ViewBag.location_ID = new SelectList(db.location, "ID", "city");
+
+            if(locationFilter.HasValue)
+            {
+                member = member.Where(m => m.location_ID == locationFilter);
+            }
 
             if (!String.IsNullOrEmpty(searchString))
             {

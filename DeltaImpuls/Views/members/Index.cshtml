@@ -13,8 +13,8 @@
     </div>
 
     <div class="content-right">
-        <h3>Kies locatie:</h3>
-        <h3>Zoek lid: @Html.TextBox("SearchString", ViewBag.SearchValue as string)</h3>
+        <h3>Kies locatie: @Html.DropDownList("location_ID", null, "Alle", htmlAttributes: new { @class = "form-control", @id = "locationFilter" })</h3>
+        <h3>Zoek lid: @Html.TextBox("SearchString", ViewBag.SearchValue as string, htmlAttributes: new { @class = "form-control" })</h3>
     </div>
 <table class="table">
     <tr>
