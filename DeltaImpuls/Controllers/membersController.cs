@@ -25,6 +25,14 @@ namespace DeltaImpuls.Controllers
             ViewBag.SeniorAmount = seniorAmount;
             ViewBag.JuniorAmount = juniorAmount;
 
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                member = member.Where(m =>
+                m.firstname.Contains(searchString)
+                || m.lastname.Contains(searchString)
+                );
+            }
+
             return View(member.ToList());
         }
 

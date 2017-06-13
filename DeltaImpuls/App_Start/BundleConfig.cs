@@ -27,6 +27,10 @@ namespace DeltaImpuls
                       "~/Content/bootstrap.css",
                       "~/Content/Site.css",
                       "~/Content/site.css"));
+
+            //Own bundles
+            bundles.Add(new ScriptBundle("~/bundles/ownbundle").Include(
+                    "~/Scripts/mainScript.js"));
         }
     }
 }
