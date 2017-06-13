@@ -37,12 +37,21 @@ textarea {
 
 .left{
     float:left;
-    display:inline-block;
     width:50%;
 }
 
 .right{
     float:right;
-    display:inline-block;
     width:50%;
+}
+
+.content-left{
+    float:left;
+    width:50%;
+    padding-left:30%;
+}
+
+.content-right{
+    float:right;
+    width:45%;
 }

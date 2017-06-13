@@ -15,9 +15,10 @@ namespace DeltaImpuls.Controllers
         private datimpulsEntities db = new datimpulsEntities();
 
         // GET: members
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int? locationFilter, int? ageFilter)
         {
             var member = db.member.Include(m => m.categorie).Include(m => m.lj).Include(m => m.location).Include(m => m.ls);
+
 
             return View(member.ToList());
         }

@@ -4,8 +4,18 @@
     ViewBag.Title = "Startpagina";
 }
 
-<h2>@ViewBag.Title</h2>
+    <h2>@ViewBag.Title</h2>
 
+    <div class="content-left">
+        <p>Aantal senioren:</p>
+        <p>Aantal junioren:</p>
+        <p>Filteren op:</p>
+    </div>
+
+    <div class="content-right">
+        <p>Kies locatie:</p>
+        <p>Zoek lid:</p>
+    </div>
 <table class="table">
     <tr>
         <th>
@@ -57,21 +67,27 @@
             @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
+            J/S
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.categorie.name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lj.license)
+            LJ
+            @*@Html.DisplayNameFor(model => model.lj.license)*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.location.city)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ls.license)
+            LS
+            @*@Html.DisplayNameFor(model => model.ls.license)*@
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.firstname)
@@ -87,7 +103,7 @@
         </td>
         <td>
             @{ 
-                if(item.cg)
+                if (item.cg)
                 {
                     @Html.Raw("J")
                 }
@@ -99,7 +115,7 @@
         </td>
         <td>
             @{
-                if(item.paratt)
+                if (item.paratt)
                 {
                     @Html.Raw("J")
                 }
@@ -117,7 +133,7 @@
         </td>
         <td>
             @{ 
-                if (item.gender)
+                if (!item.gender)
                 {
                     @Html.Raw("M")
                 }
@@ -148,6 +164,18 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @{
+                if(item.categorie.name == "Senior")
+                {
+                    @Html.Raw("S")
+                }
+                else
+                {
+                    @Html.Raw("J")
+                }
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.categorie.name)
