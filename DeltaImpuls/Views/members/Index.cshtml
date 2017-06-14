@@ -9,7 +9,7 @@
     <div class="content-left">
         <h3>Aantal senioren: @ViewBag.SeniorAmount</h3>
         <h3>Aantal junioren: @ViewBag.JuniorAmount</h3>
-        <h3>Filteren op:</h3>
+        <h3>Filteren op: @Html.DropDownList("categorie_id", null, "Alle", htmlAttributes: new { @class = "form-control", @id = "categorieFilter" })</h3>
     </div>
 
     <div class="content-right">

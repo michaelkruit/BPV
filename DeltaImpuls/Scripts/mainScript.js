@@ -5,6 +5,7 @@ var locationValue = $('#locationFilter').val();
 function GetData() {
     searchValue = $('#SearchString').val();
     locationValue = $('#locationFilter').val();
+    categorieValue = $('#categorieFilter').val();
 }
 
 $('#locationFilter').change(function () {
@@ -12,7 +13,23 @@ $('#locationFilter').change(function () {
     $.ajax({
         type: "GET",
         url: url,
-        data: { "searchString": searchValue, "locationFilter": locationValue },
+        data: { "searchString": searchValue, "locationFilter": locationValue, "categorieFilter": categorieValue },
+        success: function (result) {
+            $('.table tbody').html($(result).find('.table tbody tr'));
+            //$('.paginations').html($(result).find('.paginations'));
+        },
+        error: function (result) {
+            alert("Error!");
+        }
+    });
+});
+
+$('#categorieFilter').change(function () {
+    GetData();
+    $.ajax({
+        type: "GET",
+        url: url,
+        data: { "searchString": searchValue, "locationFilter": locationValue, "categorieFilter": categorieValue },
         success: function (result) {
             $('.table tbody').html($(result).find('.table tbody tr'));
             //$('.paginations').html($(result).find('.paginations'));
@@ -29,7 +46,7 @@ $('#SearchString').keypress(function (e) {
         $.ajax({
             type: "GET",
             url: url,
-            data: { "searchString": searchValue },
+            data: { "searchString": searchValue, "locationFilter": locationValue, "categorieFilter": categorieValue },
             success: function (result) {
                 $('.table tbody').html($(result).find('.table tbody tr'));
             }
