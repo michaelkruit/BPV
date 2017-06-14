@@ -26,8 +26,8 @@ namespace DeltaImpuls.Controllers
         {
             var member = db.member.Include(m => m.categorie).Include(m => m.lj).Include(m => m.location).Include(m => m.ls);
             
-            var seniorAmount = member.Where(m => m.categorie.age > 17).Count();
-            var juniorAmount = member.Where(m => m.categorie.age < 18).Count();
+            var seniorAmount = member.Where(m => m.categorie.age > m.categorie.age).Count();
+            var juniorAmount = member.Where(m => m.categorie.age < m.categorie.age).Count();
 
             ViewBag.SearchValue = searchString;
             ViewBag.CurrentLocation = locationFilter;
