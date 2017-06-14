@@ -18,10 +18,10 @@ namespace DeltaImpuls.Models
     {
         public System.Guid ID { get; set; }
         [Required, DisplayName("Voornaam")]
-        [RegularExpression(@"/([A-Za-z])/", ErrorMessage = "Er mogen geen cijfers in de naam")]
+        [RegularExpression(@"^[A-Z]'?[-a-zA-Z]+$", ErrorMessage = "Er mogen geen cijfers in de naam")]
         public string firstname { get; set; }
         [Required, DisplayName("Achternaam")]
-        [RegularExpression(@"/([A-Za-z])/", ErrorMessage = "Er mogen geen cijfers in de achternaam")]
+        [RegularExpression(@"^[A-Z]'?[-a-zA-Z]+$", ErrorMessage = "Er mogen geen cijfers in de achternaam")]
         public string lastname { get; set; }
         [DisplayName("T.V.")]
         [RegularExpression(@"/([A-Z- . a-z])/", ErrorMessage = "Er mogen geen cijfers in het tussenvoegsel")]
@@ -51,7 +51,7 @@ namespace DeltaImpuls.Models
         [RegularExpression(@"^[1-9][0-9]{3}\s?[a-zA-Z]{2}$", ErrorMessage = "Postcode is niet correct ingevuld")]
         public string postcode { get; set; }
         [Required, DisplayName("Woonplaats")]
-        [RegularExpression(@"/([A-Za-z])/", ErrorMessage = "Er mogen geen cijfers in de woonplaats")]
+        [RegularExpression(@"^[A-Z]'?[-a-zA-Z]+$", ErrorMessage = "Er mogen geen cijfers in de woonplaats")]
         public string city { get; set; }
         [DisplayName("Telefoonnummer")]
         [DataType(DataType.PhoneNumber), StringLength(12, MinimumLength = 6)]
