@@ -83,16 +83,14 @@
             LS
         </th>
         <th></th>
+        <th></th>
     </tr>
 
 @foreach (var item in Model)
 {
     <tr>
         <td>
-            @{ 
-                string firstName = Server.HtmlDecode(Html.DisplayFor(modelItem => item.firstname).ToString());
-            }
-            @Html.ActionLink(firstName, "Edit", new { id = item.ID })
+            @Html.DisplayFor(modelItem => item.firstname)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.lastname)
@@ -140,7 +138,7 @@
             }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.dateborn, "{0:dd/MM/yyyy}")
+            @Html.DisplayFor(modelItem => item.dateborn)
         </td>
         <td>
             @{ 
@@ -155,7 +153,7 @@
             }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.membersince, "{0:dd/MM/yyyy}")
+            @Html.DisplayFor(modelItem => item.membersince)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.adres)
@@ -198,6 +196,16 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ls.license)
+        </td>
+        <td>
+            <a href="@Url.Action("edit", "members", new { id = item.ID })" class="btn btn-info">
+                <span class="fa fa-pencil" aria-hidden="true"></span>
+            </a>
+        </td>
+        <td>
+            <a href="@Url.Action("delete", "members", new { id = item.ID })" class="btn btn-danger">
+                <span class="fa fa-trash" aria-hidden="true"></span>
+            </a>
         </td>
     </tr>
 }

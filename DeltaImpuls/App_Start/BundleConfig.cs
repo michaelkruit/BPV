@@ -26,7 +26,8 @@ namespace DeltaImpuls
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/Site.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/font-awesome.css"));
 
             //Own bundles
             bundles.Add(new ScriptBundle("~/bundles/ownbundle").Include(
