@@ -198,12 +198,12 @@
             @Html.DisplayFor(modelItem => item.ls.license)
         </td>
         <td>
-            <a href="@Url.Action("edit", "members", new { id = item.ID })" class="btn btn-info">
+            <a href="@Url.Action("edit", new { id = item.ID })" class="btn btn-info">
                 <span class="fa fa-pencil" aria-hidden="true"></span>
             </a>
         </td>
         <td>
-            <a href="@Url.Action("delete", "members", new { id = item.ID })" class="btn btn-danger">
+            <a href="@Url.Action("delete", new { id = item.ID })" class="btn btn-danger">
                 <span class="fa fa-trash" aria-hidden="true"></span>
             </a>
         </td>
