@@ -16,7 +16,7 @@ $('#locationFilter').change(function () {
         data: { "searchString": searchValue, "locationFilter": locationValue, "categorieFilter": categorieValue },
         success: function (result) {
             $('.table tbody').html($(result).find('.table tbody tr'));
-            //$('.paginations').html($(result).find('.paginations'));
+            $('.paginations').html($(result).find('.paginations'));
         },
         error: function (result) {
             alert("Error!");
@@ -32,7 +32,7 @@ $('#categorieFilter').change(function () {
         data: { "searchString": searchValue, "locationFilter": locationValue, "categorieFilter": categorieValue },
         success: function (result) {
             $('.table tbody').html($(result).find('.table tbody tr'));
-            //$('.paginations').html($(result).find('.paginations'));
+            $('.paginations').html($(result).find('.paginations'));
         },
         error: function (result) {
             alert("Error!");
@@ -49,6 +49,7 @@ $('#SearchString').keypress(function (e) {
             data: { "searchString": searchValue, "locationFilter": locationValue, "categorieFilter": categorieValue },
             success: function (result) {
                 $('.table tbody').html($(result).find('.table tbody tr'));
+                $('.paginations').html($(result).find('.paginations'));
             }
         });
     }

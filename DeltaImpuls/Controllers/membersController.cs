@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DeltaImpuls.Models;
+using PagedList;
 
 namespace DeltaImpuls.Controllers
 {
@@ -21,13 +22,16 @@ namespace DeltaImpuls.Controllers
         private datimpulsEntities db = new datimpulsEntities();
 
         // GET: members
-        public ActionResult Index(string searchString, Guid? locationFilter, Guid? categorieFilter)
+        public ActionResult Index(string searchString, Guid? locationFilter, Guid? categorieFilter, int? page)
         {
             var member = db.member.Include(m => m.categorie).Include(m => m.lj).Include(m => m.location).Include(m => m.ls);
             
             var seniorAmount = member.Where(m => m.categorie.age > 17).Count();
             var juniorAmount = member.Where(m => m.categorie.age < 18).Count();
 
+            ViewBag.SearchValue = searchString;
+            ViewBag.CurrentLocation = locationFilter;
+            ViewBag.CurrentCategorie = categorieFilter;
             ViewBag.SeniorAmount = seniorAmount;
             ViewBag.JuniorAmount = juniorAmount;
             ViewBag.location_ID = new SelectList(db.location, "ID", "city");
@@ -51,7 +55,15 @@ namespace DeltaImpuls.Controllers
                 );
             }
 
-            return View(member.ToList());
+            if(searchString != null)
+            {
+                page = 1;
+            }
+
+            int pageSize = 10;
+            int pageNumber = page ?? 1;
+
+            return View(member.OrderBy(m => m.firstname).ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Settings()

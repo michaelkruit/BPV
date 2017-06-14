@@ -53,3 +53,5 @@ C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\Delta
 C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\DeltaImpuls.Tests\obj\Debug\DeltaImpuls.Tests.csprojResolveAssemblyReference.cache
 C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\DeltaImpuls.Tests\obj\Debug\DeltaImpuls.Tests.dll
 C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\DeltaImpuls.Tests\obj\Debug\DeltaImpuls.Tests.pdb
+C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\DeltaImpuls.Tests\bin\Debug\PagedList.dll
+C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\DeltaImpuls.Tests\bin\Debug\PagedList.xml

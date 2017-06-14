@@ -40,12 +40,13 @@ namespace DeltaImpuls.Models
         [Required, DisplayName("Adres")]
         public string adres { get; set; }
         [Required, DisplayName("Postcode")]
-        [DataType(DataType.PostalCode)]
+        [DataType(DataType.PostalCode), StringLength(7, MinimumLength = 4)]
         public string postcode { get; set; }
         [Required, DisplayName("Woonplaats")]
         public string city { get; set; }
         [DisplayName("Telefoonnummer")]
-        [DataType(DataType.PhoneNumber)]
+        [DataType(DataType.PhoneNumber), StringLength(12, MinimumLength = 6)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Niet een correct telefoonnummer")]
         public string phonennumber { get; set; }
         [DisplayName("Mobiel")]
         [DataType(DataType.PhoneNumber)]

@@ -80,3 +80,7 @@ C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\Delta
 C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\DeltaImpuls\obj\Debug\DeltaImpuls.csprojResolveAssemblyReference.cache
 C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\DeltaImpuls\obj\Debug\DeltaImpuls.dll
 C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\DeltaImpuls\obj\Debug\DeltaImpuls.pdb
+C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\DeltaImpuls\bin\PagedList.dll
+C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\DeltaImpuls\bin\PagedList.Mvc.dll
+C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\DeltaImpuls\bin\PagedList.xml
+C:\Users\micha\OneDrive\Documenten\Visual Studio 2015\Projects\DeltaImpuls\DeltaImpuls\bin\PagedList.Mvc.xml

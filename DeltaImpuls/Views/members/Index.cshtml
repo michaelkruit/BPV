@@ -1,4 +1,5 @@
-﻿@model IEnumerable<DeltaImpuls.Models.member>
+﻿@model PagedList.IPagedList<DeltaImpuls.Models.member>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Startpagina";
@@ -19,64 +20,64 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.firstname)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().firstname)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lastname)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().lastname)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.insertion)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().insertion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.bondsnr)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().bondsnr)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cg)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().cg)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.paratt)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().paratt)
         </th>
         <th>
             Leeftijd
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.dateborn)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().dateborn)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.gender)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().gender)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.membersince)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().membersince)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.adres)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().adres)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.postcode)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().postcode)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.city)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().city)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.phonennumber)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().phonennumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.mobilenumber)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().mobilenumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().email)
         </th>
         <th>
             J/S
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.categorie.name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().categorie.name)
         </th>
         <th>
             LJ
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.location.city)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().location.city)
         </th>
         <th>
             LS
@@ -139,7 +140,7 @@
             }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.dateborn)
+            @Html.DisplayFor(modelItem => item.dateborn, "{0:dd/MM/yyyy}")
         </td>
         <td>
             @{ 
@@ -154,7 +155,7 @@
             }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.membersince)
+            @Html.DisplayFor(modelItem => item.membersince, "{0:dd/MM/yyyy}")
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.adres)
@@ -202,3 +203,7 @@
 }
 
 </table>
+<div class="paginations">
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, searchString = ViewBag.SearchValue, locationFiler = ViewBag.CurrentLocation, categorieFilter = ViewBag.CurrentCategorie }))
+</div>
