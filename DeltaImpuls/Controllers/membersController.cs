@@ -40,6 +40,11 @@ namespace DeltaImpuls.Controllers
             if (locationFilter.HasValue)
             {
                 member = member.Where(m => m.location_ID == locationFilter);
+                seniorAmount = member.Where(m => m.categorie.age > 17).Where(m => m.location_ID == locationFilter).Count();
+                ViewBag.SeniorAmount = seniorAmount;
+
+                juniorAmount = member.Where(m => m.categorie.age < 18).Where(m => m.location_ID == locationFilter).Count();
+                ViewBag.JuniorAmount = juniorAmount;
             }
 
             if (categorieFilter.HasValue)

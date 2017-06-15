@@ -17,6 +17,7 @@ $('#locationFilter').change(function () {
         success: function (result) {
             $('.table tbody').html($(result).find('.table tbody tr'));
             $('.paginations').html($(result).find('.paginations'));
+            $('.amount').html($(result).find('.amount'));
         },
         error: function (result) {
             alert("Error!");

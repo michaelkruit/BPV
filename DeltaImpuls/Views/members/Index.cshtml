@@ -8,8 +8,10 @@
     <h2>@ViewBag.Title</h2>
 
     <div class="content-left">
-        <h3>Aantal senioren: @ViewBag.SeniorAmount</h3>
-        <h3>Aantal junioren: @ViewBag.JuniorAmount</h3>
+        <div class="amount">
+            <h3>Aantal senioren: @ViewBag.SeniorAmount</h3>
+            <h3>Aantal junioren: @ViewBag.JuniorAmount</h3>
+        </div>
         <h3>Filteren op: @Html.DropDownList("categorie_id", null, "Alle", htmlAttributes: new { @class = "form-control", @id = "categorieFilter" })</h3>
     </div>
 
