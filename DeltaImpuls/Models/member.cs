@@ -49,7 +49,8 @@ namespace DeltaImpuls.Models
         [RegularExpression(@"^[1-9][0-9]{3}\s?[a-zA-Z]{2}$", ErrorMessage = "Postcode is niet correct ingevuld")]
         public string postcode { get; set; }
         [Required, DisplayName("Woonplaats")]
-        [RegularExpression(@"^[A-Z]'?[-a-zA-Z]+$", ErrorMessage = "Er mogen geen correcte woonplaats")]
+        [RegularExpression(@"^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð-]+$",
+            ErrorMessage = "Er is geen correcte woonplaats ingevoerd")]
         public string city { get; set; }
         [DisplayName("Telefoonnummer")]
         [DataType(DataType.PhoneNumber), StringLength(12, MinimumLength = 6)]
