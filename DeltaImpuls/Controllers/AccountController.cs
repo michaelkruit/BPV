@@ -86,7 +86,7 @@ namespace DeltaImpuls.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Inlog gegevens zijn niet correct");
                     return View(model);
             }
         }
