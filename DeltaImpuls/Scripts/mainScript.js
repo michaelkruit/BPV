@@ -1,6 +1,7 @@
 ﻿var url = window.location.pathname;
 var searchValue = $('#SearchString').val();
 var locationValue = $('#locationFilter').val();
+var categorieValue = $('#categorieFilter').val();
 
 function GetData() {
     searchValue = $('#SearchString').val();
